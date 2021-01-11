@@ -2,6 +2,9 @@
 
 This is the Flask based project
 
-First we need to run .py file.
+Here model.h5 file is missing. because of sixe issue.
+you can use use your own pre trained model file in this project.
+
+First you need to run .py file.
 then go to the http://127.0.0.1:5000/
 Enter the text and click on the button.
