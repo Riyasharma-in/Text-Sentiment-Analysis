@@ -12,23 +12,26 @@
     <div class="EmbedModel-module--embedContainer--1-R1j">
         <div class="EmbedModel-module--subElem--1HF_Q">
             <h3 class="EmbedModel-module--title--3MWBG">Test with your own text</h3>
-            <form method="post" action="{{ url_for('sentiment_result') }}" id="calculator_form"><textarea name="Input1"></textarea>
+            <form method="post" action="{{ url_for('sentiment_result') }}" id="classify_form"><textarea name="Input"></textarea>
                 <button type="submit">Classify Text</button>
             </form>
         </div>
         <div class="EmbedModel-module--subElem--1HF_Q">
             <h3 class="EmbedModel-module--title--3MWBG">Results</h3>
-            <div class="EmbedModel-module--headerRow--1Z4Iv EmbedModel-module--classifierTable--2DKNw"><span>Tag</span><span>Confidence</span>
+            <div class="EmbedModel-module--headerRow--1Z4Iv EmbedModel-module--classifierTable--2DKNw">
+            <span>Tag</span><span>Confidence</span>
             </div><div class="EmbedModel-module--resultContainer--9x84X">
-                <div class="EmbedModel-module--resultRow--1PfbI EmbedModel-module--classifierTable--2DKNw"><span></span>{% if calculation_success == True %}
-                    <span class="EmbedModel-module--green--3aMhi">{{result}}</span>
+                <div class="EmbedModel-module--resultRow--1PfbI EmbedModel-module--classifierTable--2DKNw">
+                    {% if sentiment_success == True %}
+                    <span>{{tag}}</span>
+                    <span class="EmbedModel-module--green--3aMhi">{{confidence}}</span>
                 </div>
             </div>
         </div>
     </div>
  
     {% endif %}
-    {% if calculation_success == False %}
+    {% if sentiment_success == False %}
         <br/>
         <p>{{error}}</p>
         <p>{{input1}} {{operation}} {{input2}} = "{{result}}"</p>
